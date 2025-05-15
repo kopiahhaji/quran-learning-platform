@@ -1,0 +1,95 @@
+/* Base styles with focus on accessibility */
+:root {
+  --font-base-size: 16px;
+  --primary-color: #28534c;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --accent-color: #a5d6a7;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: var(--font-base-size);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Large, readable text */
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.5rem; }
+p { font-size: 1.2rem; }
+
+/* Container layout */
+header, main, footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Font size controls */
+#font-size-increase, #font-size-decrease {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Main menu styling */
+.main-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.menu-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Large, easy-to-tap buttons */
+.large-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-menu {
+    grid-template-columns: 1fr;
+  }
+  
+  h1 { font-size: 1.8rem; }
+}
+
+/* Add to your CSS */
+.arabic-text {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Scheherazade', 'Traditional Arabic', serif;
+}
