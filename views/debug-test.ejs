@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - Quran Learning Platform</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="theme-color" content="#000000">
+</head>
+<body class="amoled-theme">
+    <div class="background-glow"></div>
+    <div class="texture-overlay"></div>
+    <div class="texture-pattern"></div>
+    <header>
+        <h1 data-text="Halaman Ujian Debug" class="premium-text">Halaman Ujian Debug</h1>
+        <div class="controls">
+            <button onclick="window.debugTools.toggleDebugMode()">Togol Debug</button>
+            <button onclick="window.debugTools.toggleAnimationDebug()">Togol Animasi</button>
+            <button onclick="window.debugTools.toggleLayoutDebug()">Togol Susun Atur</button>
+            <button onclick="window.debugTools.togglePerformanceMode()">Togol Prestasi</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome performance-critical">
+            <h2 class="premium-text">Ujian Ciri-ciri Debug</h2>
+            <p>Halaman ini menunjukkan semua ciri-ciri debug yang tersedia.</p>
+        </section>
+
+        <div class="main-menu">
+            <div class="menu-item">
+                <div class="glow-effect"></div>
+                <h3>Ujian Animasi</h3>
+                <p>Elemen ini mempunyai animasi hover</p>
+            </div>
+            <div class="menu-item">
+                <h3>Layout Test</h3>
+                <p>This element may trigger layout shifts</p>
+            </div>
+            <div class="menu-item">
+                <h3>Performance Test</h3>
+                <p>This element uses GPU acceleration</p>
+            </div>
+        </div>
+
+        <button class="large-button">
+            Test Button
+        </button>
+    </main>
+
+    <footer>
+        <p>Debug controls are in the bottom-right corner</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/debug-tools.js"></script>
+    <script src="/js/amoled-effects.js"></script>
+    <script>
+        // Test dynamic layout shifts
+        setInterval(() => {
+            const testElement = document.querySelector('.main-menu');
+            testElement.style.marginTop = Math.random() > 0.5 ? '2rem' : '2.5rem';
+        }, 2000);
+
+        // Test animation performance
+        setInterval(() => {
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                item.style.transform = 'translateY(' + (Math.random() * 5) + 'px)';
+            });
+        }, 1000);
+    </script>
+</body>
+</html>

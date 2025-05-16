@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .audio-loading { color: #666; font-size: 0.9em; }
+    .audio-error { color: red; font-size: 0.9em; }
+  </style>
+</head>
+<body class="debug-animations">
+  <header>
+    <h1><%= title %></h1>
+    <a href="/">Back to Home</a>
+  </header>
+  <main>
+    <% if (verses && verses.length) { %>
+      <% verses.forEach(function(v) { %>
+        <div class="verse">
+          <p class="arabic big-text"> <%= v.arabic %> </p>
+          <p class="translation"> <%= v.translation %> </p>
+          <% if (v.audioUrl) { %>
+            <div class="audio-container">
+              <audio controls onloadstart="this.parentElement.querySelector('.audio-loading').style.display='block'" 
+                           oncanplay="this.parentElement.querySelector('.audio-loading').style.display='none'"
+                           onerror="handleAudioError(this)">
+                <source src="<%= v.audioUrl %>" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <p class="audio-loading" style="display: none">Loading audio...</p>
+              <p class="audio-error" style="display: none"></p>
+            </div>
+          <% } %>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No verses available.</p>
+    <% } %>
+  </main>
+  <footer>
+    <p>&copy; 2025 Quran Learning Platform</p>
+  </footer>
+
+  <script>
+    function handleAudioError(audioElement) {
+      const container = audioElement.parentElement;
+      const errorElement = container.querySelector('.audio-error');
+      const loadingElement = container.querySelector('.audio-loading');
+      
+      loadingElement.style.display = 'none';
+      errorElement.style.display = 'block';
+      errorElement.textContent = 'Error loading audio. Please try again later.';
+      
+      console.error('Audio loading error:', audioElement.querySelector('source').src);
+    }
+
+    // Add this to check if audio URLs are accessible
+    document.addEventListener('DOMContentLoaded', function() {
+      const audioElements = document.querySelectorAll('audio');
+      audioElements.forEach(audio => {
+        const source = audio.querySelector('source');
+        if (source) {
+          console.log('Attempting to load audio from:', source.src);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
