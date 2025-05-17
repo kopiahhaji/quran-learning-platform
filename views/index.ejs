@@ -9,33 +9,101 @@
 <body>
   <header>
     <h1>Quran Learning Platform</h1>
-    <button id="font-size-increase">A+</button>
-    <button id="font-size-decrease">A-</button>
+    <div class="header-controls">
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-icon light">☀️</span>
+        <span class="theme-icon dark">🌙</span>
+      </button>
+      <button id="font-size-increase">A+</button>
+      <button id="font-size-decrease">A-</button>
+    </div>
   </header>
   
   <main>
     <section class="welcome">
       <h2>Welcome to Your Quran Learning Journey</h2>
       <p>This platform is designed to help you learn the Quran with ease.</p>
+      
+      <div class="search-container">
+        <form id="quranSearch" class="search-form" action="/search" method="GET">
+          <div class="search-wrapper">
+            <input 
+              type="search" 
+              id="searchInput" 
+              name="q" 
+              placeholder="Search for Surah, Verse, or Topic..."
+              aria-label="Search the Quran"
+              autocomplete="off"
+            >
+            <div class="search-controls">
+              <button type="button" id="clearSearch" class="clear-button" aria-label="Clear search" style="display: none;">
+                <span class="clear-icon">×</span>
+              </button>
+              <button type="button" id="voiceSearch" class="voice-search-button" aria-label="Search by voice">
+                <span class="voice-icon">🎤</span>
+              </button>
+              <button type="submit" class="search-button" aria-label="Search">
+                <span class="search-icon">🔍</span>
+              </button>
+            </div>
+            <div class="search-loading">
+              <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="search-filters">
+            <label class="filter-option">
+              <input type="radio" name="type" value="surah" checked>
+              <span>Surah</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="verse">
+              <span>Verse</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="topic">
+              <span>Topic</span>
+            </label>
+            <label class="filter-option">
+              <input type="radio" name="type" value="translation">
+              <span>Translation</span>
+            </label>
+          </div>
+
+          <div id="recentSearches" class="recent-searches">
+            <div class="recent-searches-header">
+              <span class="recent-searches-title">Recent Searches</span>
+              <button type="button" class="clear-history">Clear All</button>
+            </div>
+            <div class="recent-search-items"></div>
+          </div>
+
+          <div id="searchSuggestions" class="search-suggestions"></div>
+        </form>
+      </div>
     </section>
     
     <section class="main-menu">
       <div class="menu-item">
         <h3>Quran Reading</h3>
         <p>Learn to read the Quran with proper pronunciation.</p>
-        <button class="large-button">Start Reading</button>
+        <a href="/quran" class="large-button">Start Reading</a>
       </div>
       
       <div class="menu-item">
         <h3>Tajwid Rules</h3>
         <p>Learn the proper rules for reciting the Quran.</p>
-        <button class="large-button">Learn Tajwid</button>
+        <a href="/tajwid" class="large-button">Learn Tajwid</a>
       </div>
       
       <div class="menu-item">
         <h3>Practice Tests</h3>
         <p>Test your knowledge with interactive quizzes.</p>
-        <button class="large-button">Take a Test</button>
+        <a href="/tests" class="large-button">Take a Test</a>
       </div>
     </section>
   </main>
@@ -45,5 +113,6 @@
   </footer>
   
   <script src="/js/accessibility.js"></script>
+  <script src="/js/search.js"></script>
 </body>
 </html>

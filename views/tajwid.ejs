@@ -12,9 +12,673 @@
     <a href="/">Back to Home</a>
   </header>
   <main>
-    <h2>Coming Soon</h2>
-    <p>This page will contain Tajwid rules and explanations.</p>
+    <section class="tajwid-intro glass-panel">
+      <h2>Learn Tajwid Rules</h2>
+      <p>Master the art of proper Quranic recitation through comprehensive Tajwid lessons.</p>
+      <div class="progress-stats">
+        <div class="level-indicator">Level 1</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 0%"></div>
+          <span class="progress-text">0% Completed</span>
+        </div>
+        <div class="experience-bar">
+          <div class="experience-progress" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tajwid-grid">
+      <section class="tajwid-section glass-panel" data-section="nun-sakinah">
+        <h3>Nun Sakinah & Tanwin Rules</h3>
+        <div class="tajwid-content">
+          <ul class="tajwid-list">
+            <li class="expandable">
+              <strong>Izhar (إظهار)</strong>
+              <div class="rule-details">
+                <p>Clear pronunciation when نْ or tanwin is followed by throat letters: ء ه ع ح غ خ</p>
+                <div class="example">
+                  <span class="arabic">مِنْ خَيْرٍ</span>
+                  <span class="translation">Example: min khair</span>
+                  <button class="play-audio" data-audio="izhar-example">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Idgham (إدغام)</strong>
+              <div class="rule-details">
+                <p>Merging نْ or tanwin with letters: ي ن م و ل ر</p>
+                <div class="example">
+                  <span class="arabic">مِنْ رَّبِّهِمْ</span>
+                  <span class="translation">Example: mir rabbihim</span>
+                  <button class="play-audio" data-audio="idgham-example">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Iqlab (إقلاب)</strong>
+              <div class="rule-details">
+                <p>Converting نْ or tanwin to م when followed by ب</p>
+                <div class="example">
+                  <span class="arabic">مِنْ بَعْدِ</span>
+                  <span class="translation">Example: mim ba'di</span>
+                  <button class="play-audio" data-audio="iqlab-example">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Ikhfa (إخفاء)</strong>
+              <div class="rule-details">
+                <p>Hiding نْ or tanwin with remaining letters</p>
+                <div class="example">
+                  <span class="arabic">مِنْ تَحْتِهَا</span>
+                  <span class="translation">Example: min tahtiha</span>
+                  <button class="play-audio" data-audio="ikhfa-example">▶️</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="practice-button">
+            <button class="large-button">Practice These Rules</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tajwid-section glass-panel" data-section="meem-sakinah">
+        <h3>Meem Sakinah Rules</h3>
+        <div class="tajwid-content">
+          <ul class="tajwid-list">
+            <li class="expandable">
+              <strong>Idgham Shafawi (إدغام شفوي)</strong>
+              <div class="rule-details">
+                <p>Merging مْ with another م</p>
+                <div class="example">
+                  <span class="arabic">لَكُمْ مَا</span>
+                  <span class="translation">Example: lakum ma</span>
+                  <button class="play-audio" data-audio="idgham-shafawi">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Ikhfa Shafawi (إخفاء شفوي)</strong>
+              <div class="rule-details">
+                <p>Hiding مْ when followed by ب</p>
+                <div class="example">
+                  <span class="arabic">هُمْ بِالآخِرَةِ</span>
+                  <span class="translation">Example: hum bil-akhirati</span>
+                  <button class="play-audio" data-audio="ikhfa-shafawi">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Izhar Shafawi (إظهار شفوي)</strong>
+              <div class="rule-details">
+                <p>Clear pronunciation of مْ with remaining letters</p>
+                <div class="example">
+                  <span class="arabic">عَلَيْهِمْ غَيْرِ</span>
+                  <span class="translation">Example: alayhim ghayri</span>
+                  <button class="play-audio" data-audio="izhar-shafawi">▶️</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="practice-button">
+            <button class="large-button">Practice These Rules</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tajwid-section glass-panel interactive-section" data-section="madd">
+        <h3>Madd Rules</h3>
+        <div class="tajwid-content">
+          <div class="madd-interactive">
+            <div class="madd-visualization">
+              <div class="madd-wave"></div>
+              <span class="duration-marker">2 counts</span>
+            </div>
+            <div class="madd-controls">
+              <button class="count-btn" data-counts="2">2 Counts</button>
+              <button class="count-btn" data-counts="4">4 Counts</button>
+              <button class="count-btn" data-counts="6">6 Counts</button>
+            </div>
+          </div>
+          <ul class="tajwid-list">
+            <li class="expandable">
+              <strong>Madd Asli (مد أصلي)</strong>
+              <div class="rule-details">
+                <p>Natural prolongation - 2 counts</p>
+                <div class="example">
+                  <span class="arabic">قَالُوا</span>
+                  <button class="play-audio" data-audio="madd-asli">▶️</button>
+                </div>
+              </div>
+            </li>
+            <li class="expandable">
+              <strong>Madd Wajib (مد واجب)</strong>
+              <div class="rule-details">
+                <p>Obligatory prolongation - 4 counts</p>
+                <div class="example">
+                  <span class="arabic">جَاءَ</span>
+                  <button class="play-audio" data-audio="madd-wajib">▶️</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tajwid-section glass-panel" data-section="special">
+        <h3>Special Rules</h3>
+        <div class="tajwid-content">
+          <ul class="tajwid-list">
+            <li class="expandable">
+              <strong>Qalqalah (قلقلة)</strong>
+              <div class="rule-details">
+                <p>Echo sound for letters: ق ط ب ج د</p>
+                <div class="example">
+                  <span class="arabic">قُلْ</span>
+                  <span class="translation">Example: qul</span>
+                  <button class="play-audio" data-audio="qalqalah">▶️</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="practice-button">
+            <button class="large-button">Practice Special Rules</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="tajwid-practice glass-panel">
+      <h3>Interactive Practice Area</h3>
+      <div class="practice-area">
+        <div class="verse-display">
+          <p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+          <p class="translation">In the name of Allah, the Most Gracious, the Most Merciful</p>
+        </div>
+        <div class="rule-identifier">
+          <p>Click on words to identify Tajwid rules</p>
+        </div>
+        <div class="controls">
+          <button class="prev-verse">Previous</button>
+          <button class="play-audio">Play Audio</button>
+          <button class="next-verse">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tajwid-section glass-panel" data-section="common-mistakes">
+      <h3>Common Mistakes & How to Avoid Them</h3>
+      <div class="tajwid-content">
+        <ul class="tajwid-list">
+          <li class="expandable">
+            <strong>Heavy Letters (حروف مفخمة)</strong>
+            <div class="rule-details">
+              <p>Common mistake: Not giving proper heaviness to letters like ص، ض، ط، ظ</p>
+              <div class="example">
+                <span class="arabic">الصِّرَاطَ</span>
+                <span class="translation">Example: as-siraat</span>
+                <button class="play-audio" data-audio="heavy-letters">▶️</button>
+              </div>
+            </div>
+          </li>
+          <li class="expandable">
+            <strong>Proper Stops (الوقف)</strong>
+            <div class="rule-details">
+              <p>Common mistake: Stopping at incorrect places or not observing proper stopping signs</p>
+              <div class="example">
+                <span class="arabic">بِسْمِ اللَّهِ ۙ الرَّحْمَٰنِ</span>
+                <span class="translation">Example of proper pause locations</span>
+                <button class="play-audio" data-audio="proper-stops">▶️</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tajwid-section glass-panel" data-section="certification">
+      <h3>Tajwid Certification Path</h3>
+      <div class="tajwid-content">
+        <div class="certification-levels">
+          <div class="level">
+            <h4>Level 1: Basics</h4>
+            <ul>
+              <li>Basic pronunciation rules</li>
+              <li>Nun Sakinah & Tanwin</li>
+              <li>Meem Sakinah</li>
+            </ul>
+          </div>
+          <div class="level">
+            <h4>Level 2: Intermediate</h4>
+            <ul>
+              <li>Madd rules</li>
+              <li>Special pronunciations</li>
+              <li>Common mistakes</li>
+            </ul>
+          </div>
+          <div class="level">
+            <h4>Level 3: Advanced</h4>
+            <ul>
+              <li>Complex rules applications</li>
+              <li>Proper stops and starts</li>
+              <li>Practical recitation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="certification-cta">
+          <button class="large-button">Start Certification Journey</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tajwid-section glass-panel" data-section="real-time-practice">
+      <h3>Real-Time Practice Studio</h3>
+      <div class="practice-studio">
+        <div class="practice-modes">
+          <button class="mode-btn active" data-mode="pronunciation">Pronunciation</button>
+          <button class="mode-btn" data-mode="rules">Rule Recognition</button>
+          <button class="mode-btn" data-mode="recitation">Full Recitation</button>
+        </div>
+        
+        <div class="practice-workspace">
+          <div class="verse-selector">
+            <select id="surah-select">
+              <option value="1">Al-Fatihah</option>
+              <option value="112">Al-Ikhlas</option>
+              <option value="113">Al-Falaq</option>
+              <option value="114">An-Nas</option>
+            </select>
+            <button class="load-verse">Load Verse</button>
+          </div>
+
+          <div class="interactive-verse">          <div class="verse-text">
+            <div class="word-by-word-container">
+              <p class="arabic-text" id="practice-text">Select a surah to begin</p>
+              <div class="word-details">
+                <!-- Word-by-word details will be populated here -->
+              </div>
+              <p class="transliteration"></p>
+              <div class="translation-container">
+                <p class="word-translation"></p>
+                <p class="full-translation"></p>
+              </div>
+            </div>
+            <div class="verse-controls">
+              <button class="toggle-word-view" title="Toggle word-by-word view">
+                <span class="icon">⇵</span>
+              </button>
+              <button class="toggle-tajweed" title="Toggle Tajweed highlighting">
+                <span class="icon">👁</span>
+              </button>
+              <button class="playback-speed" title="Adjust playback speed">
+                <span class="speed-value">1x</span>
+              </button>
+            </div>
+          </div>
+            
+            <div class="verse-tools">
+              <div class="tool-buttons">
+                <button class="tool-btn" data-tool="highlight">Highlight Rules</button>
+                <button class="tool-btn" data-tool="slow">Slow Recitation</button>
+                <button class="tool-btn" data-tool="record">Record</button>
+              </div>
+            </div>
+
+            <div class="feedback-panel">
+              <h4>Real-time Feedback</h4>
+              <div class="feedback-content">
+                <div class="rules-found"></div>
+                <div class="pronunciation-guide"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="practice-controls">
+            <button class="control-btn" id="start-practice">Start Practice</button>
+            <button class="control-btn" id="stop-practice">Stop</button>
+            <button class="control-btn" id="replay">Replay</button>
+          </div>
+        </div>
+
+        <div class="practice-history">
+          <h4>Practice History</h4>
+          <div class="history-list">
+            <!-- Will be populated dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tajwid-section glass-panel" data-section="pronunciation-guide">
+      <h3>Detailed Pronunciation Guide</h3>
+      <div class="pronunciation-content">
+        <div class="letter-groups">
+          <div class="letter-group">
+            <h4>Throat Letters (الحروف الحلقية)</h4>
+            <div class="letters">
+              <div class="letter-card" data-letter="ء">
+                <span class="letter">ء</span>
+                <span class="name">Hamzah</span>
+                <button class="play-sound">▶️</button>
+              </div>
+              <div class="letter-card" data-letter="ه">
+                <span class="letter">ه</span>
+                <span class="name">Ha</span>
+                <button class="play-sound">▶️</button>
+              </div>
+              <!-- Add more letters -->
+            </div>
+          </div>
+
+          <div class="letter-group">
+            <h4>Tongue Letters (حروف اللسان)</h4>
+            <div class="letters">
+              <div class="letter-card" data-letter="ل">
+                <span class="letter">ل</span>
+                <span class="name">Lam</span>
+                <button class="play-sound">▶️</button>
+              </div>
+              <div class="letter-card" data-letter="ن">
+                <span class="letter">ن</span>
+                <span class="name">Nun</span>
+                <button class="play-sound">▶️</button>
+              </div>
+              <!-- Add more letters -->
+            </div>
+          </div>
+        </div>
+
+        <div class="pronunciation-diagram">
+          <h4>Interactive Pronunciation Points</h4>
+          <div class="diagram-container">
+            <img src="/images/pronunciation-points.svg" alt="Pronunciation points diagram" />
+            <div class="point-markers">
+              <!-- Will be populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </section>
   </main>
+
+  <style>
+    .tajwid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .tajwid-section {
+      padding: 2rem;
+    }
+
+    .tajwid-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tajwid-list li {
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tajwid-list li.expandable:hover {
+      transform: translateX(10px);
+      background: rgba(0, 184, 148, 0.1);
+    }
+
+    .rule-details {
+      display: none;
+      padding: 1rem 0;
+      margin-top: 1rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .expandable.active .rule-details {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .example {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(0, 184, 148, 0.05);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .arabic {
+      font-family: 'Scheherazade', serif;
+      font-size: 1.5rem;
+      direction: rtl;
+    }
+
+    .translation {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .play-audio {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .play-audio:hover {
+      transform: scale(1.1);
+    }
+
+    .progress-bar {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      height: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress {
+      background: var(--accent-color);
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
+      color: var(--text-color);
+    }
+
+    .madd-interactive {
+      background: rgba(0, 184, 148, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .madd-wave {
+      height: 60px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent-color) 50%, 
+        transparent 100%);
+      animation: waveAnimation 2s ease-in-out infinite;
+    }
+
+    .madd-controls {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .count-btn {
+      background: rgba(0, 184, 148, 0.1);
+      border: 1px solid var(--accent-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .count-btn:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    .practice-area {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .verse-display {
+      margin-bottom: 2rem;
+    }
+
+    .arabic-text {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    @keyframes waveAnimation {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.5); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .tajwid-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .example {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <script src="/js/verse-display.js"></script>
+  <script src="/js/progress-manager.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize progress manager
+      const progressManager = new ProgressManager();
+      window.progressManager = progressManager; // Make it globally accessible
+      
+      // Initialize verse display
+      const verseDisplayInstance = new VerseDisplay();
+      
+      // Expandable sections with progress tracking
+      document.querySelectorAll('.expandable').forEach(item => {
+        item.addEventListener('click', function() {
+          this.classList.toggle('active');
+          if (this.classList.contains('active')) {
+            // Record progress when a section is expanded
+            const section = this.closest('.tajwid-section');
+            if (section) {
+              const sectionId = section.dataset.section;
+              progressManager.completeLesson(sectionId);
+            }
+          }
+        });
+      });
+
+      // Madd controls
+      document.querySelectorAll('.count-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const counts = this.dataset.counts;
+          document.querySelector('.madd-wave').style.animationDuration = counts + 's';
+          document.querySelector('.duration-marker').textContent = counts + ' counts';
+        });
+      });
+
+      // Progress tracking
+      let completedSections = 0;
+      const totalSections = document.querySelectorAll('.tajwid-section').length;
+
+      function updateProgress() {
+        const percentage = (completedSections / totalSections) * 100;
+        document.querySelector('.progress').style.width = percentage + '%';
+        document.querySelector('.progress-text').textContent = Math.round(percentage) + '% Completed';
+      }
+
+      // Audio playback simulation
+      document.querySelectorAll('.play-audio').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const audioId = this.dataset.audio;
+          // Simulate audio playback
+          this.textContent = '⏳';
+          setTimeout(() => {
+            this.textContent = '▶️';
+          }, 2000);
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .tajwid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .tajwid-section {
+      padding: 2rem;
+    }
+
+    .tajwid-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tajwid-list li {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 0.3s ease;
+    }
+
+    .tajwid-list li:hover {
+      transform: translateX(10px);
+      background: rgba(0, 184, 148, 0.1);
+    }
+
+    .tajwid-intro {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
   <footer>
     <p>&copy; 2025 Quran Learning Platform</p>
   </footer>

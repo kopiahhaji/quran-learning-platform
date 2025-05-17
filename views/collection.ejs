@@ -1,0 +1,76 @@
+<%- include('partials/header') %>
+
+<main class="collection-container">
+    <!-- User Stats Section -->
+    <section class="user-stats glass-panel">
+        <div class="user-profile">
+            <h2>Welcome, <%= user.name %></h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-value"><%= user.streak %></span>
+                    <span class="stat-label">Day Streak</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><%= user.totalBookmarks %></span>
+                    <span class="stat-label">Bookmarks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value"><%= user.totalNotes %></span>
+                    <span class="stat-label">Study Notes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookmarks Section -->
+    <section class="bookmarks-section glass-panel">
+        <h2>My Bookmarks</h2>
+        <div class="bookmarks-grid">
+            <% collections.bookmarks.forEach(bookmark => { %>
+                <div class="bookmark-card">
+                    <h3><%= bookmark.surah %></h3>
+                    <p class="verse-number">Verse <%= bookmark.verse %></p>
+                    <p class="note"><%= bookmark.note %></p>
+                    <small class="date">Added: <%= bookmark.dateAdded %></small>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="recent-activity glass-panel">
+        <h2>Recent Activity</h2>
+        <div class="activity-timeline">
+            <% collections.recentActivity.forEach(activity => { %>
+                <div class="activity-item">
+                    <div class="activity-icon <%= activity.type.toLowerCase() %>"></div>
+                    <div class="activity-content">
+                        <h4><%= activity.type %> - <%= activity.surah %></h4>
+                        <p><%= activity.timestamp %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <!-- Study Notes Section -->
+    <section class="study-notes glass-panel">
+        <h2>Study Notes</h2>
+        <div class="notes-grid">
+            <% collections.studyNotes.forEach(note => { %>
+                <div class="note-card">
+                    <h3><%= note.title %></h3>
+                    <p><%= note.content %></p>
+                    <div class="note-tags">
+                        <% note.tags.forEach(tag => { %>
+                            <span class="tag">#<%= tag %></span>
+                        <% }); %>
+                    </div>
+                    <small class="date">Last modified: <%= note.lastModified %></small>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

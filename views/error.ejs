@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="robots" content="noindex, nofollow">
+    <% if (error instanceof RateLimitError && error.retryAfter) { %>
+        <meta http-equiv="refresh" content="<%= error.retryAfter %>">
+    <% } %>
+</head>
+<body>
+    <main class="error-page">
+        <div class="glass-panel error-container">
+            <div class="error-icon">
+                <% 
+                let iconClass = '';
+                if (error.statusCode === 404) {
+                    iconClass = '🔍';
+                } else if (error.statusCode === 401 || error.statusCode === 403) {
+                    iconClass = '🔒';
+                } else if (error.statusCode === 429) {
+                    iconClass = '⏳';
+                } else if (error.statusCode >= 500) {
+                    iconClass = '🔧';
+                } else {
+                    iconClass = '⚠️';
+                }
+                %>
+                <span class="icon"><%= iconClass %></span>
+            </div>
+            
+            <h1><%= title %></h1>
+            <p class="error-message"><%= message %></p>
+            
+            <% if (error.validationErrors && error.validationErrors.length > 0) { %>
+                <div class="validation-errors">
+                    <h3>Please check the following:</h3>
+                    <ul>
+                        <% error.validationErrors.forEach(function(err) { %>
+                            <li><%= err.field %>: <%= err.message %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+
+            <% if (error.suggestions && error.suggestions.length > 0) { %>
+                <div class="error-suggestions">
+                    <h3>Suggestions:</h3>
+                    <ul>
+                        <% error.suggestions.forEach(function(suggestion) { %>
+                            <li><%= suggestion %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% } %>
+
+            <% if (error instanceof RateLimitError && error.retryAfter) { %>
+                <div class="rate-limit-info">
+                    <p>You can try again in <span class="countdown"><%= error.retryAfter %></span> seconds</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="animation-duration: <%- error.retryAfter %>s"></div>
+                    </div>
+                </div>
+            <% } %>
+            
+            <div class="error-actions">
+                <% if (error.statusCode !== 429) { %>
+                    <a href="javascript:history.back()" class="button secondary-button">Go Back</a>
+                <% } %>
+                <a href="/" class="button primary-button">Return Home</a>
+                <% if (error.statusCode >= 500) { %>
+                    <button onclick="reportIssue()" class="button warning-button">Report Issue</button>
+                <% } %>
+            </div>
+
+            <% if (process.env.NODE_ENV === 'development') { %>
+                <div class="debug-info">
+                    <h3>Debug Information</h3>
+                    <div class="debug-tabs">
+                        <button class="tab-button active" onclick="showTab('stack')">Stack Trace</button>
+                        <button class="tab-button" onclick="showTab('request')">Request Details</button>
+                    </div>
+                    <div id="stack" class="tab-content active">
+                        <pre><code><%= error.stack %></code></pre>
+                    </div>
+                    <div id="request" class="tab-content">
+                        <pre><code><%= JSON.stringify({
+                            method: error.method,
+                            path: error.path,
+                            headers: error.headers
+                        }, null, 2) %></code></pre>
+                    </div>
+                </div>
+            <% } %>
+
+            <div class="help-text">
+                <p>If this problem persists, please <a href="/contact">contact support</a> or try again later.</p>
+                <% if (error.statusCode >= 500) { %>
+                    <p class="error-id">Error ID: <%= error.errorId || 'Unknown' %></p>
+                <% } %>
+            </div>
+        </div>
+    </main>
+
+    <% if (process.env.NODE_ENV === 'development') { %>
+        <script>
+            function showTab(tabName) {
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(tabName).classList.add('active');
+                event.target.classList.add('active');
+            }
+        </script>
+    <% } %>
+
+    <% if (error instanceof RateLimitError && error.retryAfter) { %>
+        <script>
+            const countdown = document.querySelector('.countdown');
+            let timeLeft = <%- error.retryAfter %>;
+            
+            const timer = setInterval(() => {
+                timeLeft--;
+                countdown.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    window.location.reload();
+                }
+            }, 1000);
+        </script>
+    <% } %>
+</body>
+</html>

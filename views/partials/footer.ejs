@@ -1,5 +1,226 @@
-    <!-- Scripts -->
-    <script src="/js/accessibility.js"></script>
-    <script src="/js/debug-tools.js"></script>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/quran">Read Quran</a></li>
+                <li><a href="/tajwid">Learn Tajwid</a></li>
+                <li><a href="/tests">Practice Tests</a></li>
+                <li><a href="/collection">My Collection</a></li>
+                <li><a href="/bookmarks">My Bookmarks</a></li>
+                <li><a href="/progress">Learning Journey</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Learning Resources</h3>
+            <ul>
+                <li><a href="/tutorials">Video Tutorials</a></li>
+                <li><a href="/guides">Beginner's Guide</a></li>
+                <li><a href="/pronunciation">Pronunciation</a></li>
+                <li><a href="/glossary">Islamic Terms</a></li>
+                <li><a href="/memorization">Memorization Tips</a></li>
+                <li><a href="/courses">Online Courses</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Community</h3>
+            <ul>
+                <li><a href="/forum">Discussion Forum</a></li>
+                <li><a href="/scholars">Ask Scholars</a></li>
+                <li><a href="/events">Online Events</a></li>
+                <li><a href="/blog">Blog & Articles</a></li>
+                <li><a href="/community">Study Groups</a></li>
+                <li><a href="/mentorship">Find a Mentor</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="/help">Help Center</a></li>
+                <li><a href="/feedback">Send Feedback</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                <li><a href="/donate">Support Us</a></li>
+                <li><a href="/report">Report Issue</a></li>
+                <li><a href="/faq">FAQs</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section newsletter-section">
+            <h3>Stay Connected</h3>
+            <p class="newsletter-text">Get weekly Quranic insights and learning tips delivered to your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <div class="input-group">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        aria-label="Email for newsletter"
+                        required
+                    >
+                    <button type="submit" aria-label="Subscribe">
+                        <span class="subscribe-icon">📨</span>
+                    </button>
+                </div>
+                <div class="consent-checkbox">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">I agree to receive educational emails</label>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-section progress-section">
+            <h3>Your Progress</h3>
+            <div class="progress-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Lessons Completed</span>
+                    <span class="stat-value" id="lessonsCompleted">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Current Streak</span>
+                    <span class="stat-value" id="currentStreak">0 days</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Study Time</span>
+                    <span class="stat-value" id="studyTime">0h</span>
+                </div>
+            </div>
+            <a href="/dashboard" class="view-progress-btn">View Full Progress</a>
+        </div>
+
+        <div class="footer-section app-section">
+            <h3>Mobile Apps</h3>
+            <p class="app-description">Take your Quran learning journey anywhere with our mobile apps.</p>
+            <div class="app-buttons">
+                <a href="#" class="app-button" aria-label="Download on App Store">
+                    <img src="/images/app-store.png" alt="App Store" width="140" height="42">
+                </a>
+                <a href="#" class="app-button" aria-label="Get it on Google Play">
+                    <img src="/images/play-store.png" alt="Google Play" width="140" height="42">
+                </a>
+            </div>
+            <div class="app-features">
+                <div class="feature">
+                    <span class="feature-icon">📱</span>
+                    <span class="feature-text">Offline Mode</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎧</span>
+                    <span class="feature-text">Audio Learning</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-text">Progress Tracking</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Follow us on Facebook" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" aria-label="Follow us on Twitter" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" aria-label="Follow us on Instagram" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="Subscribe to our YouTube channel" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" aria-label="Join our Discord community" class="social-link">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-info">
+            <p class="copyright">&copy; 2025 Quran Learning Platform. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Use</a>
+                <a href="/accessibility">Accessibility</a>
+                <a href="/sitemap">Sitemap</a>
+                <a href="/developers">API</a>
+                <a href="/partners">Partners</a>
+            </div>
+        </div>
+        
+        <div class="footer-settings">
+            <div class="setting-group">
+                <label for="fontSizeSelect">Font Size:</label>
+                <select id="fontSizeSelect" class="footer-select">
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                    <option value="x-large">Extra Large</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="themeSelect">Theme:</label>
+                <select id="themeSelect" class="footer-select">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="amoled">AMOLED</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="languageSelect">Language:</label>
+                <select id="languageSelect" class="footer-select">
+                    <option value="en">English</option>
+                    <option value="ar">العربية</option>
+                    <option value="ur">اردو</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="fr">Français</option>
+                    <option value="ms">Bahasa Melayu</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="scriptSelect">Script:</label>
+                <select id="scriptSelect" class="footer-select">
+                    <option value="uthmani">Uthmani</option>
+                    <option value="indopak">IndoPak</option>
+                    <option value="me_quran">ME Quran</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <div class="certification-badges">
+            <span class="badge" title="Verified Quranic Content">
+                <i class="fas fa-certificate"></i> Verified Content
+            </span>
+            <span class="badge" title="Scholars Approved">
+                <i class="fas fa-check-circle"></i> Scholar Approved
+            </span>
+            <span class="badge" title="Community Trusted">
+                <i class="fas fa-users"></i> Community Trusted
+            </span>
+        </div>
+        <p>This platform is dedicated to making Quranic learning accessible to everyone. All Quranic content is verified by certified scholars.</p>
+        <p>For optimal experience, we recommend using the latest version of Chrome, Firefox, or Safari.</p>
+        <div class="tech-support">
+            <span>Need technical support? </span>
+            <a href="/support/chat" class="support-link">Chat with us</a>
+            <span> or call </span>
+            <a href="tel:+1234567890" class="support-link">+1 (234) 567-890</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+<script src="/js/theme-switcher.js"></script>
+<script src="/js/accessibility.js"></script>
+<script src="/js/footer-controls.js"></script>
+<script src="/js/progress-tracker.js"></script>
+<script src="/js/newsletter.js"></script>
 </body>
 </html>

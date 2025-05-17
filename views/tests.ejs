@@ -12,9 +12,143 @@
     <a href="/">Back to Home</a>
   </header>
   <main>
-    <h2>Coming Soon</h2>
-    <p>This page will contain practice tests and quizzes.</p>
+    <section class="tests-intro glass-panel">
+      <h2>Practice Tests & Quizzes</h2>
+      <p>Test your knowledge and track your progress with our interactive quizzes.</p>
+    </section>
+
+    <div class="tests-grid">
+      <section class="test-category glass-panel">
+        <h3>Tajwid Rules Tests</h3>
+        <div class="quiz-list">
+          <div class="quiz-item">
+            <h4>Nun Sakinah & Tanwin</h4>
+            <p>10 questions • 15 minutes</p>
+            <button class="large-button">Start Quiz</button>
+          </div>
+          <div class="quiz-item">
+            <h4>Meem Sakinah Rules</h4>
+            <p>8 questions • 12 minutes</p>
+            <button class="large-button">Start Quiz</button>
+          </div>
+          <div class="quiz-item">
+            <h4>Madd Rules</h4>
+            <p>12 questions • 20 minutes</p>
+            <button class="large-button">Start Quiz</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="test-category glass-panel">
+        <h3>Recitation Practice</h3>
+        <div class="quiz-list">
+          <div class="quiz-item">
+            <h4>Surah Al-Fatiha</h4>
+            <p>Verse-by-verse recitation</p>
+            <button class="large-button">Practice Now</button>
+          </div>
+          <div class="quiz-item">
+            <h4>Short Surahs</h4>
+            <p>Last 10 surahs of Juz Amma</p>
+            <button class="large-button">Practice Now</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="test-category glass-panel">
+        <h3>Progress Tracking</h3>
+        <div class="progress-stats">
+          <div class="stat">
+            <span class="stat-value">85%</span>
+            <span class="stat-label">Tajwid Accuracy</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">12</span>
+            <span class="stat-label">Quizzes Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">3</span>
+            <span class="stat-label">Surahs Mastered</span>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
+
+  <style>
+    .tests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .test-category {
+      padding: 2rem;
+    }
+
+    .quiz-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .quiz-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .quiz-item:hover {
+      transform: translateY(-5px);
+      background: rgba(0, 184, 148, 0.1);
+    }
+
+    .quiz-item h4 {
+      margin: 0;
+      color: var(--text-color-accent);
+    }
+
+    .quiz-item p {
+      margin: 0.5rem 0 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .progress-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--text-color-accent);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .tests-intro {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-bottom: 2rem;
+    }
+  </style>
   <footer>
     <p>&copy; 2025 Quran Learning Platform</p>
   </footer>

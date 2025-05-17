@@ -1,27 +1,76 @@
-// Basic Express server setup
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const helmet = require('helmet');
+const compression = require('compression');
+const cors = require('cors');
+const morgan = require('morgan');
+const rateLimit = require('express-rate-limit');
 const { networkInterfaces } = require('os');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Set a relaxed Content Security Policy for local development
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'; media-src 'self' https://download.quranicaudio.com; connect-src 'self' https://download.quranicaudio.com");
-  next();
+// Basic security middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+      mediaSrc: ["'self'", "https://download.quranicaudio.com"],
+      connectSrc: ["'self'", "https://download.quranicaudio.com"],
+      imgSrc: ["'self'", "data:", "https:"],
+      fontSrc: ["'self'", "data:", "https:"]
+    }
+  }
+}));
+
+// Enable compression
+app.use(compression());
+
+// Enable CORS
+app.use(cors());
+
+// Request logging in development
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
 });
+app.use(limiter);
+
+// Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Set up static files directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up template engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Routes
 const debugRoutes = require('./routes/debug');
+const collectionRoutes = require('./routes/collection');
+const tajwidRoutes = require('./routes/tajwid');
 
+// Apply routes
+app.use('/', debugRoutes);
+app.use('/', collectionRoutes);
+app.use('/', tajwidRoutes);
+
+// Define main routes
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Quran Learning Platform' });
+  res.render('index', { 
+    title: 'Quran Learning Platform',
+    currentPage: 'home'
+  });
 });
 
 // Quran Reading page
@@ -76,8 +125,19 @@ app.get('/tests', (req, res) => {
   res.render('tests', { title: 'Practice Tests' });
 });
 
-// Use routes
-app.use('/', debugRoutes);
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).render('404', { title: 'Page Not Found' });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('error', { 
+    title: 'Error',
+    message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong!'
+  });
+});
 
 // Helper function to find your local IP address
 function getLocalIp() {
